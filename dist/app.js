@@ -1,13 +1,22 @@
-const button = document.querySelector("button");
-
-const calculatePrice = (orginalPrice, hasDiscount) => {
-	return hasDiscount ? orginalPrice * 0.8 : orginalPrice;
+// <li>
+// 	<label for="task-1">Wyrzucić śmieci</label>
+// 	<input type="checkbox" id="task-1" name="Wyrzucić śmieci" />
+// </li>;
+const taskNameInputElement = document.querySelector("#name");
+const tasksContainerElement = document.querySelector(".tasks");
+const addButtonElement = document.querySelector("button");
+const tasks = ["Wyrzucić śmieci", "Pójść na siłkę", "Nakarmić koty"];
+const render = () => {
+    tasks.forEach((task) => {
+        const taskElement = document.createElement("li");
+        taskElement.innerText = task;
+        tasksContainerElement.appendChild(taskElement);
+    });
 };
-
-button.addEventListener("click", () => {
-	const orginalPrice = 50;
-	const hasDiscount = new URLSearchParams(window.location.search).get(
-		"discount"
-	);
-	console.log(calculatePrice(orginalPrice, hasDiscount));
+const addTask = (task) => {
+    tasks.push(task);
+};
+addButtonElement.addEventListener("click", (event) => {
+    event.preventDefault();
 });
+render();
