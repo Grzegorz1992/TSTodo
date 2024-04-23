@@ -9,6 +9,7 @@ const addButtonElement: HTMLButtonElement = document.querySelector("button");
 const tasks: string[] = ["Wyrzucić śmieci", "Pójść na siłkę", "Nakarmić koty"];
 
 const render = () => {
+	tasksContainerElement.innerHTML = "";
 	tasks.forEach((task) => {
 		const taskElement: HTMLElement = document.createElement("li");
 		taskElement.innerText = task;
@@ -22,7 +23,8 @@ const addTask = (task: string) => {
 
 addButtonElement.addEventListener("click", (event: Event) => {
 	event.preventDefault();
-	
+	tasks.push(taskNameInputElement.value);
+	render();
 });
 
 render();

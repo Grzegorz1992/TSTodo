@@ -7,6 +7,7 @@ const tasksContainerElement = document.querySelector(".tasks");
 const addButtonElement = document.querySelector("button");
 const tasks = ["Wyrzucić śmieci", "Pójść na siłkę", "Nakarmić koty"];
 const render = () => {
+    tasksContainerElement.innerHTML = "";
     tasks.forEach((task) => {
         const taskElement = document.createElement("li");
         taskElement.innerText = task;
@@ -18,5 +19,7 @@ const addTask = (task) => {
 };
 addButtonElement.addEventListener("click", (event) => {
     event.preventDefault();
+    tasks.push(taskNameInputElement.value);
+    render();
 });
 render();
