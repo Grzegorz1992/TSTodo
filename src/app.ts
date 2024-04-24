@@ -10,7 +10,12 @@ const categoriesContainerElement: HTMLElement =
 
 let selectedCategory: Category;
 
-const categories: Category[] = ["general", "work", "gym", "hobby"];
+const categories: Category[] = [
+	Category.GENERAL,
+	Category.WORK,
+	Category.HOBBY,
+	Category.GYM,
+];
 
 const tasks: Task[] = [
 	{ name: "Wyrzucić śmieci", done: false },
@@ -36,5 +41,9 @@ addButtonElement.addEventListener("click", (event: Event) => {
 	render(tasks, tasksContainerElement);
 });
 
-renderCategories(categories, categoriesContainerElement, updateSelectedCategory);
+renderCategories(
+	categories,
+	categoriesContainerElement,
+	updateSelectedCategory
+);
 render(tasks, tasksContainerElement);
